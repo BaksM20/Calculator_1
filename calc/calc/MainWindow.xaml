@@ -1,0 +1,64 @@
+﻿<Window x:Class="calc.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Calculator" Height="600" Width="350" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Background="#f4f4f4" Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/> <!-- Title -->
+            <RowDefinition Height="Auto"/> <!-- First number -->
+            <RowDefinition Height="Auto"/> <!-- Second number -->
+            <RowDefinition Height="Auto"/> <!-- Solution -->
+            <RowDefinition Height="Auto"/> <!-- History label -->
+            <RowDefinition Height="80"/>  <!-- History ListBox -->
+            <RowDefinition Height="Auto"/>  <!-- Operator Buttons -->
+            <RowDefinition Height="Auto"/>  <!-- Memory Buttons -->
+            <RowDefinition Height="Auto"/>  <!-- Action Buttons -->
+            <RowDefinition Height="*"/>   <!-- Spacer -->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Title -->
+        <TextBlock Grid.ColumnSpan="2" Text="Calculator" FontSize="28" FontWeight="Bold" Foreground="#333" HorizontalAlignment="Center" Margin="0,10,0,20"/>
+
+        <!-- First Number -->
+        <TextBlock Text="First number:" Grid.Row="1" VerticalAlignment="Center" Margin="0,0,10,0" FontSize="16"/>
+        <TextBox x:Name="txt1" Grid.Row="1" Grid.Column="1" Height="30" Margin="0,5" FontSize="16"/>
+
+        <!-- Second Number -->
+        <TextBlock Text="Second number:" Grid.Row="2" VerticalAlignment="Center" Margin="0,0,10,0" FontSize="16"/>
+        <TextBox x:Name="txt2" Grid.Row="2" Grid.Column="1" Height="30" Margin="0,5" FontSize="16"/>
+
+        <!-- Solution -->
+        <TextBlock Text="Solution:" Grid.Row="3" VerticalAlignment="Center" Margin="0,0,10,0" FontSize="16"/>
+        <TextBox x:Name="txt3" Grid.Row="3" Grid.Column="1" Height="30" Margin="0,5" FontSize="16" IsReadOnly="True" Background="#eee"/>
+
+        <!-- History -->
+        <TextBlock Text="History:" Grid.Row="4" Grid.ColumnSpan="2" Margin="0,10,0,0" FontSize="14" FontWeight="Bold"/>
+        <ListBox x:Name="historyList" Grid.Row="5" Grid.ColumnSpan="2" Height="80" Margin="0,5,0,0"/>
+
+        <!-- Operator Buttons -->
+        <StackPanel Grid.Row="6" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,10">
+            <Button x:Name="addbtn" Content="+" Width="50" Height="40" FontSize="18" FontWeight="Bold" Click="addbtn_Click" Margin="0,0,10,0"/>
+            <Button x:Name="multipbtn" Content="×" Width="50" Height="40" FontSize="18" FontWeight="Bold" Click="multipbtn_Click" Margin="0,0,10,0"/>
+            <Button x:Name="dividebtn" Content="÷" Width="50" Height="40" FontSize="18" FontWeight="Bold" Click="dividebtn_Click" Margin="0,0,10,0"/>
+            <Button x:Name="percentbtn" Content="%" Width="50" Height="40" FontSize="18" FontWeight="Bold" Click="percentbtn_Click"/>
+        </StackPanel>
+
+        <!-- Memory Function Buttons -->
+        <StackPanel Grid.Row="7" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,10">
+            <Button x:Name="mplusbtn" Content="M+" Width="50" Height="35" FontSize="16" FontWeight="Bold" Click="mplusbtn_Click" Margin="0,0,10,0"/>
+            <Button x:Name="mminusbtn" Content="M-" Width="50" Height="35" FontSize="16" FontWeight="Bold" Click="mminusbtn_Click" Margin="0,0,10,0"/>
+            <Button x:Name="mrbtn" Content="MR" Width="50" Height="35" FontSize="16" FontWeight="Bold" Click="mrbtn_Click" Margin="0,0,10,0"/>
+            <Button x:Name="mcbtn" Content="MC" Width="50" Height="35" FontSize="16" FontWeight="Bold" Click="mcbtn_Click"/>
+        </StackPanel>
+
+        <!-- Action Buttons -->
+        <StackPanel Grid.Row="8" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,0">
+            <Button x:Name="clearbtn" Content="Clear" Width="80" Height="35" Click="Button_Click_1" Margin="0,0,10,0"/>
+            <Button x:Name="closebtn" Content="Close" Width="80" Height="35" Click="Button_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
